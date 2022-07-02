@@ -34,3 +34,5 @@
 /objects
 *.vscode
 *zombie
+
+*.replace
