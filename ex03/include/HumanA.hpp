@@ -4,20 +4,19 @@
 
 #include <iostream>
 #include <string>
+#include "./Weapon.hpp"
 
 class HumanA
 {
     public:
-        HumanA(std::string name, std::string weapon);
-        std::string get_name(void) const;
-        void set_name(std::string name);
-        std::string set_weapon(void) const;
-        void set_weapon(std::string weapon);
+        HumanA( std::string name, Weapon &weapon );
+        ~HumanA( void );
+        Weapon& get_weapon(void) const;
         void attack();
 
         private:
             std::string name;
-            std::string weapon;
+            Weapon &weapon;
 };
 
 
