@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 12:37:53 by amantara          #+#    #+#             */
-/*   Updated: 2022/07/02 16:31:42 by amantara         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:53:01 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,30 @@ using namespace std;
 
 void ft_replace(string content, string s1, string s2) {
     int i;
-    int ocurrences
+    int ocurrences;
     string newLine;
+    size_t found;
     
+    newLine = "";
     ocurrences = 0;
-    while (content[i]){
-        size_t found = content.find(s1, found + ocurrences);
-        if (found != string::npos) {
+    found = 0;
+    i = 0;
+    
+    cout << "Content:" << content << endl;   
+    cout << "length:" << content.length() << endl;   
+    while (i < content.length()){
+        found = content.find(s1, found + ocurrences);
             if (i == found){
-                newLine += s2
+                newLine += s2;
                 ocurrences++;
-                i = i + s1.length();
+                i = i + s1.length() - 1;
+                found = 0;
             } else {
-                newLine += content[i]
+                newLine += content[i];
             }
-        }
+        i++;
     }
-    
-    
+    cout << "Nueva linea:" << newLine << endl;    
 }
 
 int main(int argc, char **argv) {
@@ -43,11 +49,14 @@ int main(int argc, char **argv) {
     fstream my_file_input;
     fstream my_file_output;
 
-    if (argc < 4 || argc > 4) {
-        cout << "Error en los parametros" << endl;
-        return (0);
-    }
-    file_name = argv[1];
+    
+    // if (argc < 4 || argc > 4) {
+    //     cout << "Error en los parametros" << endl;
+    //     return (0);
+    // }
+    
+    // file_name = argv[1];
+    file_name = "./test.txt";
 
     my_file_input.open(file_name, ios::in);
     
@@ -66,8 +75,7 @@ int main(int argc, char **argv) {
     string line;
 
     while (getline(my_file_input, line)) {
-        cout << line << endl;
-        ft_replace(line, argv[2], argv[3]);
+        ft_replace(line, "perdedores", "a");
     }
 
     return (0);
