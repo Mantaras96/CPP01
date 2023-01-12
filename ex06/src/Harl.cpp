@@ -1,60 +1,63 @@
-#include "../include/Karen.hpp"
+#include <iostream>
+#include "../include/Harl.hpp"
 
-#include <map>
-
-void Karen::complain( std::string level ){ 
-    std::map<std::string, int> myMap;
-    int i;
-
-    myMap["DEBUG"]= 0;
-    myMap["INFO"]= 1;
-    myMap["WARNING"]= 2;
-    myMap["ERROR"]= 3;
+void Harl::complain(std::string level)
+{
+    std::string lvl[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    //arr arrf[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    int nivel = 10;
+    
+    for (int i = 0; i < 4; i++)
+    {
+        if(lvl[i] == level)
+        {
+            nivel = i;
+        }
+    }
 
     try {
-        int levelInt = myMap.at(level);
-        while (levelInt <= 3){
-            switch (levelInt)  {
+        while (nivel <= 3){
+            switch (nivel)  {
                 case 0:
-                    (this->*(&Karen::debug))();
+                    (this->*(&Harl::debug))();
                 break;
                 case 1:
-                    (this->*(&Karen::info))();
+                    (this->*(&Harl::info))();
                 break;
                 case 2:
-                    (this->*(&Karen::warning))();
+                    (this->*(&Harl::warning))();
                 break;
                 case 3:
-                    (this->*(&Karen::error))();
+                    (this->*(&Harl::error))();
                 break;
             }
-            levelInt++;
+            nivel++;
         }
     }
     catch (const std::out_of_range&) {
         std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
-
+    
 }
 
-Karen::Karen (void){}
+Harl::Harl (void){}
 
-void Karen::debug(void) {
+void Harl::debug(void) {
     std::cout << "[ DEBUG ]" << std::endl;
     std::cout << "Me gustaría algo de bacon extra para mi hamburguesa 7XL";
     std::cout << "-doble-queso-triple-pepinillo-ketchup-especial. Simplemente, me encanta." << std::endl;
 }
-void Karen::info( void ) {
+void Harl::info( void ) {
     std::cout << "[ INFO ]" << std::endl;
     std::cout << "No me puedo creer que añadir bacon extra cueste más dinero.";
     std::cout << " No ponéis suficiente. Si lo hicierais no tendría que pedirlo.." << std::endl;
 }
-void Karen::warning( void ) {
+void Harl::warning( void ) {
     std::cout << "[ WARNING ]" << std::endl;
     std::cout << "Creo que me merezco algo más de bacon gratis.";
     std::cout << "Llevo viniendo años y tú empezaste a trabajar aquí el mes pasado" << std::endl;
 }
-void Karen::error( void ) {
+void Harl::error( void ) {
     std::cout << "[ ERROR ]" << std::endl;
     std::cout << "Esto es inaceptable. ";
     std::cout << "Quiero hablar con el responsable ahora mismo.." << std::endl;

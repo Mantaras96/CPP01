@@ -6,18 +6,27 @@
 int main()
 {
 {
-Weapon club = Weapon("crude spiked club");
-HumanA bob("Bob", club);
-bob.attack();
-club.setType("some other type of club");
-bob.attack();
+    Weapon club = Weapon("crude spiked club");
+    HumanA bob("Bob", club);
+    bob.attack();
+    club.setType("some other type of club");
+    bob.attack();
 }
 {
-Weapon club = Weapon("crude spiked club");
-HumanB jim("Jim");
-jim.set_weapon(club);
-jim.attack();
-club.setType("some other type of club");
-jim.attack();
+    Weapon club = Weapon("crude spiked club");
+    HumanB jim("Jim");
+    jim.set_weapon(club);
+    jim.attack();
+    club.setType("some other type of club");
+    jim.attack();
+}
+
+{
+    Weapon rocket = Weapon("ROCKET");
+    HumanB ernesto("Ernesto");
+    ernesto.set_weapon(rocket);
+    ernesto.attack();
+    rocket.setType("Rocket_launcher");
+    ernesto.attack();
 }
 }

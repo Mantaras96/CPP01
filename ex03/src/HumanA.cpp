@@ -7,6 +7,7 @@ HumanA::HumanA( std::string name, Weapon &weapon ): name(name), weapon(weapon)
 
 HumanA::~HumanA(void)
 {
+    std::cout << "Human A " << this->name << " is dead" << std::endl;
 }
 
 void   HumanA::attack(){

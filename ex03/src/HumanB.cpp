@@ -5,6 +5,12 @@ HumanB::HumanB( std::string name): name(name)
 {
 }
 
+HumanB::~HumanB(void)
+{
+    std::cout << "Human B:" << this->name << " is dead" << std::endl;
+
+}
+
 void HumanB::set_weapon(Weapon& weapon){
     this->weapon = &weapon;
 }

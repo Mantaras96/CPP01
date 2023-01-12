@@ -1,12 +1,7 @@
-#include "../include/Karen.hpp"
+#include "../include/Harl.hpp"
 
-int main(int argc, char **argv){
+int main(){
 
-    if (argc != 2) {
-        std::cout << "Error de Karen parametros" << std::endl;
-    } else {
-    Karen karen;
-    karen.complain(argv[1]);    
-    }
-
+    Harl karen;
+    karen.complain("DEBUG");
 }
